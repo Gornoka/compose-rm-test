@@ -56,11 +56,11 @@ down --remove-orphans should remove all containers from the compose file and not
 error exists
 ````bash
 VERSION_STRING=5:24.0.9-1~ubuntu.20.04~focal
-COMPOSE_VERSION=2.21.0-1~ubuntu.20.04~focal
+COMPOSE_VERSION=2.24.5-1~ubuntu.20.04~focal
 sudo apt-get install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin=$COMPOSE_VERSION
 ````
 
-the docker compose version is as in our old actions logs
+the docker version is as in our old actions logs
 ````bash
 VERSION_STRING=5:24.0.6-1~ubuntu.20.04~focal
 COMPOSE_VERSION=2.24.1-1~ubuntu.20.04~focal
