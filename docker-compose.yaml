@@ -1,0 +1,25 @@
+services:
+  sorcery:
+    image: ubuntu
+    restart: unless-stopped
+    command: ["echo", "hello", "&&" , "sleep", "1800"]
+    networks:
+      - database_network
+
+  magic:
+    image: ubuntu
+    restart: "no"
+    environment:
+      PGPASSWORD: ${POSTGRES_PASSWORD:-example}
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_DB: ${WEBAPP_DATABASE:-anticipate_inspect}
+    networks:
+      - database_network
+    depends_on:
+      - sorcery
+    command: ["getent" , "hosts", "sorcery"]
+    profiles:
+      - magic-do-not-use-as-a-profile
+
+networks:
+  database_network:
